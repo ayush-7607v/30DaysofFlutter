@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1_vs/screens/home_page.dart';
 import 'package:flutter_application_1_vs/screens/login_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,7 +26,11 @@ class MyApp extends StatelessWidget {
         themeMode: ThemeMode.light,
         // here if light given then goes to below else dark choose goes to darktheme :
 
-        theme: ThemeData(primarySwatch: Colors.pink),
+        theme: ThemeData(
+          primarySwatch: Colors.pink,
+          fontFamily: GoogleFonts.lato().fontFamily,
+        ),
+        // ,primaryTextTheme: GoogleFonts.latoTextTheme() not work
         // primary swatch set of colors which chang whole theme wrt color chosse smartly
 
         darkTheme: ThemeData(
@@ -54,3 +59,5 @@ class MyApp extends StatelessWidget {
 // ctrl + shift + p command palette
 // ctrl + + SIZE INC
 //  run f5
+//  ctrl + . for wrapping
+// ctrl + click for documenatation of any button etc
