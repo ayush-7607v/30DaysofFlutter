@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1_vs/Utils/Routes.dart';
 import 'package:flutter_application_1_vs/screens/home_page.dart';
 import 'package:flutter_application_1_vs/screens/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -30,6 +31,10 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.pink,
           fontFamily: GoogleFonts.lato().fontFamily,
         ),
+
+        debugShowCheckedModeBanner: false,
+        // help remove debug banner from app
+
         // ,primaryTextTheme: GoogleFonts.latoTextTheme() not work
         // primary swatch set of colors which chang whole theme wrt color chosse smartly
 
@@ -40,8 +45,8 @@ class MyApp extends StatelessWidget {
         // initialRoute: "/home",
         routes: {
           "/": (context) => const loginpage(),
-          "/home": (context) => homepage(),
-          "/login": (context) => loginpage()
+          MyRouteshere.homeroute: (context) => homepage(),
+          MyRouteshere.loginroute: (context) => loginpage()
         });
     // ui ka kaam
   }
