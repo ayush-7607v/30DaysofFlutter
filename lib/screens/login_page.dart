@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1_vs/Utils/Routes.dart';
 
-class loginpage extends StatelessWidget {
+class loginpage extends StatefulWidget {
   const loginpage({Key? key}) : super(key: key);
+
+  @override
+  State<loginpage> createState() => _loginpageState();
+}
+
+// _login underscore used below before login bcz to make private
+class _loginpageState extends State<loginpage> {
+  String name = "";
+  bool changeButton = false;
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +26,8 @@ class loginpage extends StatelessWidget {
           const SizedBox(
             height: 20.0,
           ),
-          const Text(
-            "Welcome",
+          Text(
+            "Welcome $name",
             style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
@@ -33,9 +42,15 @@ class loginpage extends StatelessWidget {
             child: Column(
               children: [
                 TextFormField(
-                  decoration: InputDecoration(
-                      hintText: "Enter Username", labelText: "Username"),
-                ),
+                    decoration: InputDecoration(
+                        hintText: "Enter Username", labelText: "Username"),
+                    onChanged: (value) {
+                      name = value;
+                      setState(() {});
+                      // we cant use build() direct to change ui
+                      // setState used to change build() direct calling dosent work
+                    }),
+
                 TextFormField(
                   obscureText: true,
                   decoration: InputDecoration(
@@ -44,13 +59,46 @@ class loginpage extends StatelessWidget {
                 const SizedBox(
                   height: 40.0,
                 ),
-                ElevatedButton(
-                  child: Text("Login"),
-                  style: TextButton.styleFrom(minimumSize: Size(150, 40)),
-                  onPressed: () {
-                    Navigator.pushNamed(context, MyRouteshere.homeroute);
-                  },
-                )
+
+                InkWell(
+                    onTap: () async {
+                      setState(() {
+                        changeButton = true;
+                      });
+                      await Future.delayed(Duration(seconds: 1));
+                      Navigator.pushNamed(context, MyRouteshere.homeroute);
+                    },
+                    child: AnimatedContainer(
+                      duration: Duration(seconds: 1),
+                      width: changeButton ? 50 : 150,
+                      height: 50,
+                      alignment: Alignment.center,
+                      child: changeButton
+                          ? Icon(
+                              Icons.done,
+                              color: Colors.white,
+                            )
+                          : Text(
+                              "Login",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18),
+                            ),
+                      decoration: BoxDecoration(
+                        color: Colors.deepPurple,
+                        borderRadius:
+                            BorderRadius.circular(changeButton ? 50 : 8),
+                      ),
+                    )),
+
+                // ElevatedButton(
+                //   child: Text("Login"),
+                //   style: TextButton.styleFrom(minimumSize: Size(150, 40)),
+                //   onPressed: () {
+                //     Navigator.pushNamed(context, MyRouteshere.homeroute);
+                //   },
+                // )
               ],
             ),
           )
