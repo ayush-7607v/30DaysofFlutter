@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1_vs/Utils/Routes.dart';
 import 'package:flutter_application_1_vs/screens/home_page.dart';
 import 'package:flutter_application_1_vs/screens/login_page.dart';
+import 'package:flutter_application_1_vs/widgets/themes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -27,20 +28,18 @@ class MyApp extends StatelessWidget {
         themeMode: ThemeMode.light,
         // here if light given then goes to below else dark choose goes to darktheme :
 
-        theme: ThemeData(
-          primarySwatch: Colors.pink,
-          fontFamily: GoogleFonts.lato().fontFamily,
-        ),
+        theme: Mytheme.lightTheme(context),
+        darkTheme: Mytheme.darkTheme(context),
         debugShowCheckedModeBanner: false,
         // help remove debug banner from app
 
         // ,primaryTextTheme: GoogleFonts.latoTextTheme() not work
         // primary swatch set of colors which chang whole theme wrt color chosse smartly
 
-        darkTheme: ThemeData(
-          brightness: Brightness.dark,
-          // these are specification of dark theme
-        ),
+        // darkTheme: ThemeData(
+        //   brightness: Brightness.dark,
+        //   // these are specification of dark theme
+        // ),
         initialRoute: MyRouteshere.homeroute,
         routes: {
           "/": (context) => const loginpage(),

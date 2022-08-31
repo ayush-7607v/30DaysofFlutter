@@ -6,16 +6,15 @@ class homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int day = 10;
+    int day = 1771;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("catalog app"),
-        backgroundColor: Color.fromARGB(255, 3, 156, 176),
+        title: Text("Catalog App"),
       ),
 
       body: Center(
-        child: Container(child: Text("hello $day Welcomc ehj")),
+        child: Container(child: Text("hello $day Welcome ji")),
       ),
       // body: Center(
       //   child: Container(
