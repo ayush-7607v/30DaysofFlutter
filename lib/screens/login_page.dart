@@ -31,9 +31,9 @@ class _loginpageState extends State<loginpage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
-      child: SingleChildScrollView(
-        child: Form(
+        color: Colors.white,
+        child: SingleChildScrollView(
+            child: Form(
           key: _formkey,
           child: Column(
             children: [
@@ -71,6 +71,7 @@ class _loginpageState extends State<loginpage> {
                         onChanged: (value) {
                           name = value;
                           setState(() {});
+
                           // we cant use build() direct to change ui
                           // setState used to change build() direct calling dosent work
                         }),
@@ -83,11 +84,34 @@ class _loginpageState extends State<loginpage> {
                         if (value!.isEmpty) {
                           return "Password cannot be empty";
                         } else if (value.length < 6) {
-                          return "Password length should ba atleast 6";
+                          return "Password length should be atleast 6";
                         }
                         return null;
                       },
                     ),
+
+                    // TextFormField(
+
+                    //      obscureText: true,
+                    //     decoration: const InputDecoration(
+                    //         hintText: "Enter your Mobile Number", labelText: "Mobile number"),
+
+                    //      children:
+                    //         [
+                    //           DropdownButton<String>(
+                    //             items: <String>['A', 'B', 'C', 'D']
+                    //                 .map((String value) {
+                    //               return DropdownMenuItem<String>(
+                    //                 value: value,
+                    //                 child: Text(value),
+                    //               );
+                    //             }).toList(),
+                    //             onChanged: (_) {},
+                    //           )
+                    //         ]
+
+                    // ),
+
                     const SizedBox(
                       height: 40.0,
                     ),
@@ -104,11 +128,11 @@ class _loginpageState extends State<loginpage> {
                           height: 50,
                           alignment: Alignment.center,
                           child: changeButton
-                              ? Icon(
+                              ? const Icon(
                                   Icons.done,
                                   color: Colors.white,
                                 )
-                              : Text(
+                              : const Text(
                                   "Login",
                                   style: TextStyle(
                                       color: Colors.white,
@@ -117,7 +141,7 @@ class _loginpageState extends State<loginpage> {
                                 ),
                         ),
                       ),
-                    )
+                    ),
 
                     // ElevatedButton(
                     //   child: Text("Login"),
@@ -129,22 +153,23 @@ class _loginpageState extends State<loginpage> {
                   ],
                 ),
               )
+              // ],
             ],
           ),
-        ),
-      ),
+          //   ),
+          // ),
 
-      // child: Center(
-      //     child: Text(
-      //   "Login page!!",
-      //   style: TextStyle(
-      //     fontSize: 20,
-      //     color: Colors.amber,
-      //     fontWeight: FontWeight.bold,
-      //   ),
-      //   // textAlign: Center,
-      //   // textScaleFactor: 2.0,
-      // )),
-    );
+          // child: Center(
+          //     child: Text(
+          //   "Login page!!",
+          //   style: TextStyle(
+          //     fontSize: 20,
+          //     color: Colors.amber,
+          //     fontWeight: FontWeight.bold,
+          //   ),
+          //   // textAlign: Center,
+          //   // textScaleFactor: 2.0,
+          // )),
+        )));
   }
 }

@@ -31,7 +31,6 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.pink,
           fontFamily: GoogleFonts.lato().fontFamily,
         ),
-
         debugShowCheckedModeBanner: false,
         // help remove debug banner from app
 
@@ -42,7 +41,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
           // these are specification of dark theme
         ),
-        // initialRoute: "/home",
+        initialRoute: MyRouteshere.homeroute,
         routes: {
           "/": (context) => const loginpage(),
           MyRouteshere.homeroute: (context) => homepage(),
@@ -66,3 +65,4 @@ class MyApp extends StatelessWidget {
 //  run f5
 //  ctrl + . for wrapping
 // ctrl + click for documenatation of any button etc
+//  ctrl + spacebar for options when hover over element wale
