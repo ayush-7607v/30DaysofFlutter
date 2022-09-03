@@ -9,6 +9,10 @@ void main() {
   runApp(MyApp());
 }
 
+// In order to write any Dart program, be it a script or a Flutter app,
+//  you must define a function called main.
+// You must have exactly one main function in your program.
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   // used for passing data
@@ -65,3 +69,20 @@ class MyApp extends StatelessWidget {
 //  ctrl + . for wrapping
 // ctrl + click for documenatation of any button etc
 //  ctrl + spacebar for options when hover over element wale
+
+
+
+// When you use git Visual Studio Code sync with it and shows which files are modified / untracked etc.
+// There are markers like:
+// U - Untracked
+// A - Added
+// D - Deleted
+// C - Conflict
+// R - Renamed
+// S - Submodule
+// M - Modified 'U' stands for untracked file, meaning a file that is new or changed but has not yet been added to the repository.
+
+
+// Hot reload = loads code changes into the VM and re-builds the widget tree, preserving the app state; it doesn’t rerun main() or initState(). (⌘\ in Intellij and Android Studio, ⌃F5 in VSCode)
+// Hot restart = loads code changes into the VM, and restarts the Flutter app, losing the app state. (⇧⌘\ in IntelliJ and Android Studio, ⇧⌘F5 in VSCode)
+// Full restart = restarts the iOS, Android, or web app. This takes longer because it also recompiles the Java / Kotlin / ObjC / Swift code. On the web, it also restarts the Dart Development Compiler. 

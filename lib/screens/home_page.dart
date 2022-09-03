@@ -1,15 +1,40 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_application_1_vs/models/catalog.dart';
 import 'package:flutter_application_1_vs/widgets/drawer.dart';
 import 'package:flutter_application_1_vs/widgets/item_widget.dart';
 
-class homepage extends StatelessWidget {
+class homepage extends StatefulWidget {
   const homepage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    int day = 1771;
+  State<homepage> createState() =>
+   _homepageState();
+}
 
+class _homepageState extends State<homepage> {
+
+@override
+  void initState() {
+    super.initState();
+    loadKaroData();
+  }
+
+loadKaroData() async{
+     var catalogJsonCome= await rootBundle.loadString("assets/files/catalog.json");
+   print(catalogJsonCome);
+
+   var decodedData= jsonDecode(catalogJsonCome);
+    var productsData= decodedData["products"];
+    print(productsData);
+}
+
+  @override
+  Widget build(BuildContext context) {
+
+    //  int day=23;
     // final dummyList = List.generate(15, (index) => CatalogModel.itema[0]);
     // this will create 15 copies of index 0 item
     // helpful to check how look after if all data added
@@ -18,6 +43,7 @@ class homepage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Catalog App"),
       ),
+      drawer: MyDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView.builder(
@@ -27,7 +53,6 @@ class homepage extends StatelessWidget {
           },
         ),
       ),
-      drawer: MyDrawer(),
     );
 
     // body: Center(
